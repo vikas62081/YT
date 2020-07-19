@@ -15,7 +15,6 @@ const getAllUsers=()=>{
     })
 }
 
-
 const getUserById=(id)=>{
     db.collection('users').doc(id).get().then(resp=>{console.log({id:resp.id,...resp.data()})})
 }
