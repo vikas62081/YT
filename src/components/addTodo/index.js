@@ -17,7 +17,7 @@ const AddTodo=()=>{
          placeholder="Enter something here" 
          style={{padding:10,width:'90%'}}
         required/>
-         <input type="submit" style={{padding:10,width:'6%'}} />
+         <input type="submit" style={{padding:10,width:80}} />
          </form>
     </div>
         )

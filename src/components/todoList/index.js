@@ -11,8 +11,8 @@ const Todo = ({ todo }) => {
         const message = done ? `Task '${title}' is not done !` : `Task '${title}' is done :)`
         notificationEmitter.emit("SHOW_NOTIFICATION",message)
     }
-    return (<div>
-        <input type="checkbox" style={{margin:"0 10px"}} checked={done} onChange={() => handleChange()} />
+    return (<div title={title}>
+        <input type="checkbox" style={{margin:"0 10px"}} title={done?"Completed":"yet to Completed"} checked={done} onChange={() => handleChange()} />
         {title}
         <span align="right" style={{
             padding: '0 10px',

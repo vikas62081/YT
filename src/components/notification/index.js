@@ -23,7 +23,7 @@ return <div style={{border:"1px #319e2d solid",
      backgroundColor:"#95e692",
      borderRadius:2,
      }}>
-     <span>Success : {message}</span>
+     <span>{message}</span>
      </div>
 }
 export default Notification;
