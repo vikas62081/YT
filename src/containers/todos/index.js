@@ -4,8 +4,8 @@ import Todo from '../../components/todoList';
 import AddTodo from '../../components/addTodo';
 import Notification from '../../components/notification';
 const todoList = [
-    { id: 1, title: "Wash your hand", done: false },
-    { id: 2, title: "Go for morning walk", done: true },
+    { id: 1, title: "Learn Reactjs", done: true },
+    { id: 2, title: "Create todo Application", done: false },
 ]
 export const emitter=new EventEmitter();
 const TodoContainer = () => {
@@ -29,7 +29,7 @@ const TodoContainer = () => {
     return (<div style={{ margin: 20 }}>
         <h4 align="center">Todo Application</h4>
         <Notification/>
-        {todos.length>0?todos.map(todo => <Todo todo={todo} />):<p align="center">No todo left</p>}
+        {todos.length>0?todos.map(todo => <Todo todo={todo} />):<p align="center" style={{textDecoration: "underline"}}>No todo left</p>}
         <AddTodo />
     </div>)
 }

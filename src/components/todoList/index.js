@@ -12,8 +12,8 @@ const Todo = ({ todo }) => {
         notificationEmitter.emit("SHOW_NOTIFICATION",message)
     }
     return (<div title={title}>
-        <input type="checkbox" style={{margin:"0 10px"}} title={done?"Completed":"yet to Completed"} checked={done} onChange={() => handleChange()} />
-        {title}
+        <input type="checkbox" style={{margin:"0 10px"}} title={done?"Completed":"yet to Complete"} checked={done} onChange={() => handleChange()} />
+        <span style={done?{textDecoration: "line-through"}:null}>{title}</span>
         <span align="right" style={{
             padding: '0 10px',
             position: "fixed",
@@ -24,7 +24,7 @@ const Todo = ({ todo }) => {
         }} title="delete task"
             onClick={() => {
                 emitter.emit("DELETE_TASK", id)
-                notificationEmitter.emit("SHOW_NOTIFICATION",`Task ${title} has been deleted successfully`)
+                notificationEmitter.emit("SHOW_NOTIFICATION",`Task ${title} removed successfully`)
             }}>X</span>
         <hr />
 
