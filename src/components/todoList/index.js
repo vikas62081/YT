@@ -7,6 +7,7 @@ const Todo = ({ todo }) => {
     }
     const { id, title, done } = todo;
     const handleChange = () => {
+        if(done) return ;
         emitter.emit("ACTION_CHANGED", id)
         const message = done ? `Task '${title}' is not done !` : `Task '${title}' is done :)`
         notificationEmitter.emit("SHOW_NOTIFICATION",message)
