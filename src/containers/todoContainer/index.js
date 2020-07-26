@@ -11,9 +11,14 @@ const TodoContainer = () => {
       const newTodoList=[...todos,newTodo]
       setTodos(newTodoList)
   }
+  const handleRemoveTodo=(id)=>{
+      const newTodoList=todos.filter(todo=>todo.id!==id)
+      setTodos(newTodoList)
+  }
     return (<div style={{ margin: 20 }}>
         <h4 align="center">Todo Application</h4>
-        {todos.map((todo)=><Todo todo={todo} />)}
+        {todos.length>0?todos.map((todo)=><Todo todo={todo} removeTodo={handleRemoveTodo}/>)
+        :<p align="center">no todo left</p>}
        <AddTodo addTodo={handleAddTodo}/>
     </div>)
 }

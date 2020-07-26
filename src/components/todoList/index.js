@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Todo=({todo})=>{
+const Todo=({todo,removeTodo})=>{
     console.log(todo)
     return (<div>
         <input type="checkbox" style={{margin:"0 10px"}} checked={todo.done}/>
@@ -9,7 +9,8 @@ const Todo=({todo})=>{
         right:20,
         padding:"0 10px",
         cursor:"pointer",
-        fontWeight:600}}>
+        fontWeight:600}}
+        onClick={()=>{removeTodo(todo.id)}}>
             X</span>
         <hr/>
     </div>)
