@@ -1,10 +1,18 @@
 import React from 'react'
 
-const Todo=({todo,removeTodo})=>{
-    console.log(todo)
+const Todo=({todo,removeTodo,handleChange})=>{
+ console.log(todo)
+    const hanldeCheckboxChange=()=>{
+        if(todo.done)
+            return null;
+        handleChange(todo.id)
+    }
     return (<div>
-        <input type="checkbox" style={{margin:"0 10px"}} checked={todo.done}/>
-        <span>{todo.title}</span>
+        <input type="checkbox"
+         style={{margin:"0 10px"}}
+          checked={todo.done}
+          onChange={()=>hanldeCheckboxChange()}/>
+        <span style={todo.done?{textDecoration:"line-through"}:null}>{todo.title}</span>
         <span style={{position:"fixed",
         right:20,
         padding:"0 10px",
