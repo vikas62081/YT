@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import {emitter} from '../notification'
 const AddTodo = ({ addTodo }) => {
     const addTodoStyle = {
         position: "fixed",
@@ -12,6 +12,7 @@ const AddTodo = ({ addTodo }) => {
         e.preventDefault()
         const newTodo = { id: Math.random(), title: title, done: false }
         addTodo(newTodo)
+        emitter.emit("NOTIFICATION","New todo added successfully")
         setTitle("")
     }
     return (<div style={addTodoStyle}>

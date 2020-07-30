@@ -1,11 +1,11 @@
 import React from 'react'
-
+import {emitter} from '../notification'
 const Todo=({todo,removeTodo,handleChange})=>{
- console.log(todo)
     const hanldeCheckboxChange=()=>{
         if(todo.done)
             return null;
         handleChange(todo.id)
+        emitter.emit("NOTIFICATION",`"${todo.title}" task is completed successfully`)
     }
     return (<div>
         <input type="checkbox"
@@ -18,7 +18,9 @@ const Todo=({todo,removeTodo,handleChange})=>{
         padding:"0 10px",
         cursor:"pointer",
         fontWeight:600}}
-        onClick={()=>{removeTodo(todo.id)}}>
+        onClick={()=>{removeTodo(todo.id)
+            emitter.emit("NOTIFICATION",`"${todo.title}" task is removed successfully`)
+        }}>
             X</span>
         <hr/>
     </div>)
