@@ -7,9 +7,9 @@ import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 function App() {
   const columnDefs= [
     { headerName: "Name", field: "name" },
-    { headerName: "Age", field: "age",tooltipField: 'name',}, 
-    {headerName: "Birth Year",field: "birthYear", tooltipField: 'name',},
-    { headerName: "Phone Number", field: "phoneNumber" },
+    { headerName: "Age", field: "age",tooltipField:"name"}, 
+    {headerName: "Birth Year",field: "birthYear", },
+    { headerName: "Phone Number", field: "phoneNumber",tooltipField:"name" },
    
     ]
   const rowData= [
@@ -33,8 +33,9 @@ const defaultColDef={
             columnDefs={columnDefs}
             rowData={rowData}
             defaultColDef={defaultColDef}
-            enableBrowserTooltips={true} 
-             tooltipShowDelay={{tooltipShowDelay:0}}>
+            enableBrowserTooltips={true}
+            tooltipShowDelay={{tooltipShowDelay:2}}
+            >
         </AgGridReact>
       </div>
     </div>
