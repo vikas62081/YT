@@ -1,16 +1,15 @@
 import React from 'react';
 import './App.css';
 import { AgGridReact } from 'ag-grid-react';
-
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
+
 function App() {
   const columnDefs= [
-    { headerName: "Name", field: "name" },
-    { headerName: "Age", field: "age",tooltipField: 'name',}, 
-    {headerName: "Birth Year",field: "birthYear", tooltipField: 'name',},
-    { headerName: "Phone Number", field: "phoneNumber" },
-   
+    { headerName: "ID", field: "id" },
+    { headerName: "Name", field: "name",}, 
+    {headerName: "Email",field: "email",},
+    { headerName: "Body", field: "body" },
     ]
   const rowData= [
     { name: "Rahul", age: 19, phoneNumber: 9876543210, birthYear:2001}, 
@@ -24,6 +23,12 @@ const defaultColDef={
   floatingFilter:true
 }
 
+const onGridReady=(params)=>{
+  console.log("grid is ready")
+  fetch("https://jsonplaceholder.typicode.com/comments").then(resp=>resp.json())
+  .then(resp=>{console.log(resp)
+    params.api.applyTransaction({add:resp})})
+}
   return (
     <div className="App">
       <h1 align="center">React-App</h1>
@@ -31,10 +36,9 @@ const defaultColDef={
       <div className="ag-theme-alpine" style={ {height: '400px'} }>
         <AgGridReact
             columnDefs={columnDefs}
-            rowData={rowData}
+            // rowData={rowData}
             defaultColDef={defaultColDef}
-            enableBrowserTooltips={true} 
-             tooltipShowDelay={{tooltipShowDelay:0}}>
+            onGridReady={onGridReady}>
         </AgGridReact>
       </div>
     </div>
