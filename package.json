@@ -11,9 +11,11 @@
     "ag-grid-enterprise": "^23.2.0",
     "ag-grid-react": "^23.2.0",
     "axios": "^0.19.2",
+    "formik": "^2.1.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "yup": "^0.29.3"
   },
   "scripts": {
     "start": "react-scripts start",
