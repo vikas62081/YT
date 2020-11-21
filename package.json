@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.10.2",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/pickers": "^3.2.10",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -11,6 +13,7 @@
     "ag-grid-enterprise": "^23.2.0",
     "ag-grid-react": "^23.2.0",
     "axios": "^0.19.2",
+    "cryptr": "^6.0.2",
     "formik": "^2.1.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
