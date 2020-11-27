@@ -1,12 +1,15 @@
 import React from 'react';
 import './App.css';
-
+import Login from './components/login';
+import { ThemeProvider } from '@material-ui/core';
+import {customTheme} from './components/customTheme'
 function App() {
 
   return (
     <div className="App">
-      <h1 align="center">React-App</h1>
-      
+      <ThemeProvider theme={customTheme}>
+      <Login />
+      </ThemeProvider>
     </div>
   );
 }
