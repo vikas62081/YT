@@ -39,6 +39,7 @@ const handleChange = (event, newValue) => {
           value={value}
           indicatorColor="primary"
           textColor="primary"
+          variant="fullWidth"
           onChange={handleChange}
           aria-label="disabled tabs example"
         >
