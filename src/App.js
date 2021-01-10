@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
-import SignInOutContainer from './containers';
+import RegistrationForm from './components';
+
 function App() {
   return (
     <div className="App">
-     <SignInOutContainer/> 
+      <RegistrationForm />
     </div>
-  );
-} 
+  ); 
+}
 
 export default App;
