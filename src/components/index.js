@@ -7,17 +7,23 @@ import * as Yup from 'yup'
 const RegistrationForm = () => {
     const paperStyle = { padding: '40px 20px', width: 250, margin: '20px auto' }
     const btnStyle = { marginTop: 10 }
+    const phoneRegExp=/^[2-9]{2}[0-9]{8}/
+    const passwordRegExp=/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
     const initialValues = {
         name: '',
         email: '',
         phoneNumber: '',
-        password: ''
+        password: '',
+        confirmPassword:''
     }
     const validationSchema = Yup.object().shape({
         name: Yup.string().min(3, "It's too short").required("Required"),
         email: Yup.string().email("Enter valid email").required("Required"),
-        phoneNumber: Yup.number().typeError("Enter valid Phone number").required("Required"),
-        password: Yup.string().min(8, "Minimum characters should be 8").required('Required')
+        // phoneNumber: Yup.number().typeError("Enter valid Phone number").required("Required"),
+        phoneNumber:Yup.string().matches(phoneRegExp,"Enter valid Phone number").required("Required"),
+        password: Yup.string().min(8, "Minimum characters should be 8")
+        .matches(passwordRegExp,"Password must have one upper, lower case, number, special symbol").required('Required'),
+        confirmPassword:Yup.string().oneOf([Yup.ref('password')],"Password not matches").required('Required')
     })
     const onSubmit = (values, props) => {
 
@@ -33,7 +39,7 @@ const RegistrationForm = () => {
                 </Grid>
                 <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                     {(props) => (
-                        <Form>
+                        <Form noValidate>
                             {/* <TextField label='Name' name="name" fullWidth value={props.values.name}
                     onChange={props.handleChange} /> */}
 
@@ -55,6 +61,10 @@ const RegistrationForm = () => {
                             <Field as={TextField} name='password' label='Password' type='password' fullWidth
                                 error={props.errors.password && props.touched.password}
                                 helperText={<ErrorMessage name='password' />} required />
+
+                            <Field as={TextField} name='confirmPassword' label='Confirm Password' type='password' fullWidth
+                                error={props.errors.confirmPassword && props.touched.confirmPassword}
+                                helperText={<ErrorMessage name='confirmPassword' />} required />
 
                             <Button type='submit' style={btnStyle} variant='contained'
                                 color='primary'>Register</Button>
