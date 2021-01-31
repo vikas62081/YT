@@ -5,7 +5,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 
 const RegistrationForm = () => {
-    const paperStyle = { padding: '40px 20px', width: 250, margin: '20px auto' }
+    const paperStyle = { padding: '0 15px 40px 15px', width: 250, }
     const btnStyle = { marginTop: 10 }
     const phoneRegExp=/^[2-9]{2}[0-9]{8}/
     const passwordRegExp=/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
@@ -32,9 +32,8 @@ const RegistrationForm = () => {
     }
     return (
         <Grid>
-            <Paper elevation={5} style={paperStyle}>
+            <Paper elevation={0} style={paperStyle}>
                 <Grid align='center'>
-                    <Typography variant='h6'>Register Here</Typography>
                     <Typography variant='caption'>Fill the form to create an account</Typography>
                 </Grid>
                 <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
